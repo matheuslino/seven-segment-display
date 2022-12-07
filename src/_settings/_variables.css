@@ -1,0 +1,9 @@
+:root {
+  --primary: #293042;
+  --secondary: #5d5d81;
+  --black: #000505;
+  --gray: #f7f9fc;
+  --white: #fefcfd;
+  --box-shadow: 0 0 2rem 0 rgb(41 48 66 / 10%);
+  --ft-size-gap: 1em;
+}
