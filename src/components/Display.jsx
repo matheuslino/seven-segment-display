@@ -1,6 +1,6 @@
 const Display = () => {
-    const render = <></>
-    return render
+  const render = <div>Display</div>
+  return render
 }
 
 export default Display

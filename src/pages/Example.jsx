@@ -2,7 +2,18 @@ import Display from '../components/Display'
 import styles from './style.module.css'
 
 const Example = () => {
-  const render = <section>Example</section>
+  const render = (
+    <>
+      <nav />
+      <header>
+        <h1>Seven Segment Display</h1>
+        <span>A simple component built for ReactJS Apps</span>
+      </header>
+      <section className={styles.container}>
+        <main className={styles.main}>Main</main>
+      </section>
+    </>
+  )
 
   return render
 }

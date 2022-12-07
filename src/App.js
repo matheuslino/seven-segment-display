@@ -1,13 +1,5 @@
+import Display from './components/Display'
 import Example from './pages/Example'
 
-const App = () => {
-  const render = (
-    <section>
-      <Example />
-    </section>
-  )
-
-  return render
-}
-
-export default App
+// export default Display
+export default Example
