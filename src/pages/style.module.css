@@ -33,17 +33,16 @@ header span {
 
 .container {
   padding: 1em 2em;
-}
-.row {
   display: grid;
   gap: var(--ft-size-gap);
   margin-top: var(--ft-size-gap);
   color: var(--black);
 }
+.row {
+}
 @media (min-width: 40em) {
-  .row {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
   }
 }
 

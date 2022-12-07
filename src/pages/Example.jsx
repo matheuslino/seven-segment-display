@@ -10,16 +10,12 @@ const Example = () => {
         <span>A simple component built for ReactJS Apps</span>
       </header>
       <section className={styles.container}>
-        <div className={styles.row}>
-          <div className={styles.card}>Card 1</div>
-          <div className={styles.card}>Card 2</div>
-          <div className={styles.card}>Card 3</div>
-        </div>
-        <div className={styles.row}>
-          <div className={styles.card}>Card 4</div>
-          <div className={styles.card}>Card 5</div>
-          <div className={styles.card}>Card 6</div>
-        </div>
+        <div className={styles.card}>Card 1</div>
+        <div className={styles.card}>Card 2</div>
+        <div className={styles.card}>Card 3</div>
+        <div className={styles.card}>Card 4</div>
+        <div className={styles.card}>Card 5</div>
+        <div className={styles.card}>Card 6</div>
       </section>
     </>
   )
