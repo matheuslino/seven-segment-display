@@ -89,6 +89,6 @@
   bottom: 0;
 }
 .isOn {
-  opacity: 0.9;
-  background-color: rgb(107, 249, 82);
+  opacity: 0.95;
+  background-color: rgb(89, 231, 60);
 }
