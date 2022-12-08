@@ -10,7 +10,9 @@ const Example = () => {
         <span>A simple component built for ReactJS Apps</span>
       </header>
       <section className={styles.container}>
-        <div className={styles.card}>Card 1</div>
+        <div className={styles.card}>
+          <Display />
+        </div>
         <div className={styles.card}>Card 2</div>
         <div className={styles.card}>Card 3</div>
         <div className={styles.card}>Card 4</div>
