@@ -11,13 +11,14 @@ const Example = () => {
       </header>
       <section className={styles.container}>
         <div className={styles.card}>
-          <Display />
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e, key) => (
+            <Display key={key} digit={e} />
+          ))}
         </div>
         <div className={styles.card}>
-          <Display />
-        </div>
-        <div className={styles.card}>
-          <Display />
+          {['a', 'b', 'c', 'd', 'e', 'f'].map((e, key) => (
+            <Display key={key} digit={e} />
+          ))}
         </div>
       </section>
     </>
