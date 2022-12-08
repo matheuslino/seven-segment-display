@@ -3,7 +3,9 @@ import styles from './style.module.css'
 const Display = () => {
   const segments = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'dp']
   const getSegments = segments.map((e) => (
-    <div className={styles[`segment-${e}`]}>{e}</div>
+    <div className={styles[`segment-${e}`]}>
+      <span>{e}</span>
+    </div>
   ))
 
   const render = (

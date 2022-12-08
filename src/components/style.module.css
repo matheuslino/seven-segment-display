@@ -5,63 +5,69 @@
   --gray: #6a708a;
 
   padding: 3%;
-  min-width: 60%;
+  min-width: 70%;
   background-color: var(--gray);
   border-radius: 0.4rem;
-  background-color: red;
 }
 
 .container {
+  display: flex;
+  justify-content: center;
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 100/185;
 }
 .container > * {
   display: flex;
-  align-items: center;
   justify-content: center;
   position: absolute;
   width: 100%;
-  height: var(--seg-height);
-  color: var(--white);
+  padding-bottom: var(--seg-height);
+  color: var(--gray);
   background-color: var(--white);
   opacity: 0.8;
+  transition: 0.4s;
+}
+
+/* TODO: remove it after finishing UI */
+.container span {
+  position: absolute;
 }
 
 .segment-a {
   top: 0;
 }
 .segment-b {
-  top: var(--seg-height);
-  right: 0;
-  transform: (rotate(90deg));
-  background-color: blue;
+  right: var(--seg-height);
+  transform: rotate(-90deg);
+  transform-origin: top right;
 }
 .segment-c {
-  right: 0;
-  bottom: var(--seg-height);
-  background-color: blue;
+  right: var(--seg-height);
+  bottom: 0;
+  transform: rotate(90deg);
+  transform-origin: bottom right;
 }
 .segment-d {
   bottom: 0;
-  background-color: blue;
 }
 .segment-e {
   bottom: 0;
-  left: 0;
-  background-color: blue;
+  left: var(--seg-height);
+  transform: rotate(-90deg);
+  transform-origin: bottom left;
 }
 .segment-f {
-  top: var(--seg-height);
-  left: 0;
-  background-color: blue;
+  left: var(--seg-height);
+  transform: rotate(90deg);
+  transform-origin: top left;
 }
 .segment-g {
-  top: calc(50% - (var(--seg-height) / 2));
+  width: calc(100% - 2 * var(--seg-height));
+  bottom: calc(50% - var(--seg-height) / 2);
   background-color: #ccc;
 }
 .segment-dp {
   width: var(--seg-height);
   right: 0;
   bottom: 0;
-  background-color: #ccc;
 }
