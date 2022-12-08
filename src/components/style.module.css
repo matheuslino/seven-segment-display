@@ -37,7 +37,7 @@
   padding-bottom: var(--seg-height);
   color: var(--gray);
   background-color: var(--white);
-  opacity: 0.3;
+  opacity: 0.1;
   transition: 0.4s;
   clip-path: polygon(
     calc(var(--seg-height) + var(--seg-gap)) 0,
@@ -88,8 +88,7 @@
   right: -30%;
   bottom: 0;
 }
-
-.on {
-  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+.isOn {
+  opacity: 0.9;
+  background-color: rgb(107, 249, 82);
 }

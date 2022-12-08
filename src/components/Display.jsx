@@ -1,9 +1,24 @@
 import styles from './style.module.css'
 
-const Display = ({ fluid, customClass }) => {
+const Segment = ({ code, isOn }) => {
+  const render = (
+    <div
+      className={`
+        ${styles[`segment-${code}`]}
+        ${isOn ? styles.isOn : ''}
+      `}
+    >
+      <div></div>
+    </div>
+  )
+
+  return render
+}
+
+const Display = ({ digit, fluid, customClass }) => {
   const segments = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'dp']
-  const getSegments = segments.map((e) => (
-    <div className={styles[`segment-${e}`]} key={e}></div>
+  const getSegments = segments.map((e, key) => (
+    <Segment code={e} isOn={key % 2 === 0} />
   ))
 
   const render = (
