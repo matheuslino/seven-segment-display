@@ -62,9 +62,7 @@
   transform-origin: top left;
 }
 .segment-g {
-  width: calc(100% - 2 * var(--seg-height));
-  bottom: calc(50% - var(--seg-height) / 2);
-  background-color: #ccc;
+  margin-top: 85%;
 }
 .segment-dp {
   width: var(--seg-height);
