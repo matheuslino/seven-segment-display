@@ -20,6 +20,22 @@ const truthTabel = {
   e: [1, 0, 0, 1, 1, 1, 1],
   f: [1, 0, 0, 0, 1, 1, 1],
 }
+const isOctal = (n) => {
+  if (!n?.includes(`0o`) || !n?.includes(`0O`)) return false
+  return !isNaN(n)
+}
+
+const isBinary = (n) => {
+  if (!n?.includes(`0b`) || !n?.includes(`0B`)) return false
+  return !isNaN(n)
+}
+
+const isHexadecimal = (n) => {
+  if (!n?.includes(`0x`) || !n?.includes(`0X`)) return false
+  return !isNaN(n)
+}
+
+const isInteger = (n) => Number.isInteger(n)
 
 const Segment = ({ code, isOn }) => {
   const render = (
@@ -34,14 +50,17 @@ const Segment = ({ code, isOn }) => {
   return render
 }
 
-const decodeDecimal = (e) => {}
-
 const Display = ({ digit, fluid, customClass }) => {
-  const getSegments = (digit) => {
-    console.log('digit', truthTabel[digit])
+  const decodeDecimal = (e) => {
     return segments.map((e, key) => (
       <Segment key={key} code={e} isOn={truthTabel[digit][key]} />
     ))
+  }
+
+  // TODO: handle other data types
+  const getSegments = (digit) => {
+    console.log('isBinary', digit, isBinary(digit))
+    // return decodeDecimal(digit)
   }
 
   const render = (
