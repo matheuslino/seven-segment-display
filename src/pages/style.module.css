@@ -37,22 +37,27 @@ header span {
   max-width: 80em;
   margin: 0 auto;
   padding: 2em;
-  color: var(--black);
 }
 .col {
   display: grid;
-  gap: 2em;
-  padding: 2em;
-  min-height: 30vh;
+  align-content: start;
+  gap: 1em;
+  padding: 1em;
+  min-height: 40vh;
   border-radius: 0.5em;
   background-color: #ffffff;
   box-shadow: var(--box-shadow);
 }
 @media (min-width: 40em) {
   .row {
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-  .col {
+  .col.col-A {
+    grid-column: 1 / span 3;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .col.col-B {
+    grid-column: 4 / span 2;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -62,6 +67,7 @@ header span {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: fit-content;
   gap: 1em;
   padding-top: 1em;
   background-color: var(--gray);
