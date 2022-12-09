@@ -27,7 +27,7 @@ const Example = () => {
             '0x7',
             '0x8',
             '0o11',
-            'null',
+            undefined,
           ].map((el, key) => (
             <Wrapper key={key}>
               <Display digit={Number(el).toString(16)} />

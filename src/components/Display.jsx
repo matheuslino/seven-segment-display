@@ -34,7 +34,7 @@ const Segment = ({ code, isOn }) => {
   return render
 }
 
-const Display = ({ digit, fluid, customClass }) => {
+const Display = ({ digit = '', fluid, customClass }) => {
   const decode = (n) => {
     return segments.map((e, key) => (
       <Segment key={key} code={e} isOn={truthTabel[n]?.[key]} />
