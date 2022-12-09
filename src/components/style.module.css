@@ -1,0 +1,94 @@
+.wrapper {
+  width: min(5rem, 100%);
+}
+.fluid {
+  width: 100%;
+}
+
+.box {
+  --seg-gap: 2%;
+  --seg-width: 100%;
+  --seg-height-raw: 20;
+  --seg-height: calc(var(--seg-height-raw) * 1%);
+  --white: #fdfffc;
+  --gray: #6a708a;
+
+  padding: max(4%, 0.4em) max(15%, 0.4em);
+  min-width: 100%;
+  background-color: var(--gray);
+  border-radius: 0.4rem;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transform: skew(-10deg);
+  aspect-ratio: calc(1 / (2 - (var(--seg-height-raw) / 100)));
+  /* In this case, the aspect ratio is: width / (2 * width - height); */
+}
+.container > * {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  padding-bottom: var(--seg-height);
+  color: var(--gray);
+  background-color: var(--white);
+  opacity: 0.1;
+  transition: 0.4s;
+  clip-path: polygon(
+    calc(var(--seg-height) + var(--seg-gap)) 0,
+    calc(100% - var(--seg-height) - var(--seg-gap)) 0,
+    calc(100% - var(--seg-height) / 2 - var(--seg-gap)) 50%,
+    calc(100% - var(--seg-height) - var(--seg-gap)) 100%,
+    calc(var(--seg-height) + var(--seg-gap)) 100%,
+    calc(var(--seg-height) / 2 + var(--seg-gap)) 50%
+  );
+}
+
+.segment-a {
+  top: 0;
+}
+.segment-b {
+  right: var(--seg-height);
+  transform: rotate(-90deg);
+  transform-origin: top right;
+}
+.segment-c {
+  right: var(--seg-height);
+  bottom: 0;
+  transform: rotate(90deg);
+  transform-origin: bottom right;
+}
+.segment-d {
+  bottom: 0;
+}
+.segment-e {
+  bottom: 0;
+  left: var(--seg-height);
+  transform: rotate(-90deg);
+  transform-origin: bottom left;
+}
+.segment-f {
+  left: var(--seg-height);
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+.segment-g {
+  margin-top: calc(100% - var(--seg-height));
+}
+.segment-dp {
+  width: var(--seg-height);
+  transform: scale(0.7);
+  transform-origin: bottom right;
+  clip-path: circle();
+  right: -30%;
+  bottom: 0;
+}
+.isOn {
+  opacity: 0.95;
+  background-color: rgb(81, 248, 47);
+}
