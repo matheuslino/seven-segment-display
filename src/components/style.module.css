@@ -1,5 +1,7 @@
 .wrapper {
   width: min(5rem, 100%);
+  transition: 1s;
+  /* overflow: hidden; */
 }
 .fluid {
   width: 100%;
@@ -13,21 +15,48 @@
   --white: #fdfffc;
   --gray: #6a708a;
 
-  padding: max(4%, 0.4em) max(15%, 0.4em);
   min-width: 100%;
+  padding: max(4%, 0.4em) max(15%, 0.4em);
   background-color: var(--gray);
   border-radius: 0.4rem;
   box-shadow: var(--box-shadow);
-  overflow: hidden;
-  transition: 2s;
+  transition: 1s;
 }
 .perspective {
+  width: 100px;
+  height: 100px;
   transform-style: preserve-3d;
-  transform: rotate3d(1, 1, 1, 30deg);
+  transform: rotate3d(1, 1, 0, -30deg);
 }
-.perspective:hover {
+.perspective .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
 }
-.perspective::after {
+.perspective .face-front {
+  background: black;
+  transform: translateZ(50px);
+}
+.perspective .face-back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+.perspective .face-left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+.perspective .face-right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+.perspective .face-top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+.perspective .face-bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
 }
 
 .container {

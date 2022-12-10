@@ -37,8 +37,8 @@ const Example = () => {
 
           {/* Temp */}
           <Wrapper>
-            <Display digit='b' is3D />
-            <code>{`<Display digit={b} is3D />`}</code>
+            <Display digit='1' is3D />
+            <code>{`<Display digit={1} is3D />`}</code>
           </Wrapper>
         </div>
         <div className={`${styles.col} ${styles['col-B']}`}>
