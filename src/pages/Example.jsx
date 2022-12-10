@@ -34,6 +34,12 @@ const Example = () => {
               <code>{`<Display digit={${el}} />`}</code>
             </Wrapper>
           ))}
+
+          {/* Temp */}
+          <Wrapper>
+            <Display digit='b' is3D />
+            <code>{`<Display digit={b} is3D />`}</code>
+          </Wrapper>
         </div>
         <div className={`${styles.col} ${styles['col-B']}`}>
           {[0xa, 0xb, 0xc, 0xd, 0xe, 0xf].map((el, key) => (

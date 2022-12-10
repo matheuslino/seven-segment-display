@@ -34,7 +34,7 @@ const Segment = ({ code, isOn }) => {
   return render
 }
 
-const Display = ({ digit = '', fluid, customClass }) => {
+const Display = ({ digit = '', fluid, customClass, is3D }) => {
   const decode = (n) => {
     return segments.map((e, key) => (
       <Segment key={key} code={e} isOn={truthTabel[n]?.[key]} />
@@ -51,7 +51,7 @@ const Display = ({ digit = '', fluid, customClass }) => {
         ${customClass} 
       `}
     >
-      <div className={styles.box}>
+      <div className={`${styles.box} ${is3D ? styles.perspective : ''}`}>
         <div className={styles.container}>{getSegments(digit)}</div>
       </div>
     </div>
