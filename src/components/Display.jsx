@@ -44,13 +44,19 @@ const Display = ({ digit = '', fluid, customClass, is3D }) => {
   const getSegments = (digit) => decode(digit.toString(16))
 
   const temp3D = (
-    <div className={` ${is3D ? styles.perspective : ''}  `}>
+    <div className={styles.perspective}>
       <div className={`${styles.face} ${styles['face-front']}`} />
       <div className={`${styles.face} ${styles['face-back']}`} />
       <div className={`${styles.face} ${styles['face-top']}`} />
       <div className={`${styles.face} ${styles['face-bottom']}`} />
       <div className={`${styles.face} ${styles['face-left']}`} />
       <div className={`${styles.face} ${styles['face-right']}`} />
+    </div>
+  )
+
+  const segmentBox = (
+    <div className={styles.box}>
+      <div className={styles.container}>{getSegments(digit)}</div>
     </div>
   )
 
@@ -62,12 +68,10 @@ const Display = ({ digit = '', fluid, customClass, is3D }) => {
         ${customClass} 
       `}
     >
-      <div className={`${styles.box}`}>
-        <div className={styles.container}>{getSegments(digit)}</div>
-      </div>
+      {is3D ? temp3D : segmentBox}
     </div>
   )
-  return is3D ? temp3D : render
+  return render
 }
 
 export default Display
