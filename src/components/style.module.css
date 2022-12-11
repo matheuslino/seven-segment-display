@@ -1,13 +1,4 @@
 .wrapper {
-  width: min(5rem, 100%);
-  transition: 1s;
-  /* overflow: hidden; */
-}
-.fluid {
-  width: 100%;
-}
-
-.box {
   --seg-gap: 2%;
   --seg-width: 100%;
   --seg-height-raw: 20;
@@ -15,48 +6,61 @@
   --white: #fdfffc;
   --gray: #6a708a;
 
+  width: min(5rem, 100%);
+}
+.fluid {
+  width: 100%;
+}
+
+.box {
   min-width: 100%;
   padding: max(4%, 0.4em) max(15%, 0.4em);
   background-color: var(--gray);
   border-radius: 0.4rem;
   box-shadow: var(--box-shadow);
-  transition: 1s;
+}
+.box:has(.perspective) {
+  /* padding: 0; */
+  transform: scale(5);
 }
 .perspective {
-  width: 100px;
-  height: 100px;
-  transform-style: preserve-3d;
+  width: 3.5em;
+  height: 6.3em;
+  aspect-ratio: calc(1 / (2 - (var(--seg-height-raw) / 100)));
   transform: rotate3d(1, 1, 0, -30deg);
+  transform-style: preserve-3d;
+  transition: 1s;
 }
 .perspective .face {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
-  backface-visibility: inherit;
 }
 .perspective .face-front {
   background: black;
-  transform: translateZ(50px);
+  transform: translateZ(1.75em);
 }
 .perspective .face-back {
-  background: rgba(0, 210, 0, 0.7);
-  transform: rotateY(180deg) translateZ(50px);
+  background: purple;
+  transform: rotateY(180deg) translateZ(1.75em);
 }
 .perspective .face-left {
-  background: rgba(0, 0, 210, 0.7);
-  transform: rotateY(-90deg) translateZ(50px);
+  background: blue;
+  transform: rotateY(-90deg) translateZ(1.75em);
 }
 .perspective .face-right {
-  background: rgba(210, 0, 0, 0.7);
-  transform: rotateY(90deg) translateZ(50px);
+  background: green;
+  transform: rotateY(90deg) translateZ(1.75em);
 }
 .perspective .face-top {
-  background: rgba(210, 210, 0, 0.7);
-  transform: rotateX(90deg) translateZ(50px);
+  height: 50%;
+  background: brown;
+  transform: rotateX(90deg) translateZ(1.75em);
 }
 .perspective .face-bottom {
-  background: rgba(210, 0, 210, 0.7);
-  transform: rotateX(-90deg) translateZ(50px);
+  height: 50%;
+  background: pink;
+  transform: rotateX(-90deg) translateZ(5em);
 }
 
 .container {
