@@ -42,19 +42,6 @@ const Display = ({ digit = '', fluid, customClass, is3D }) => {
     ))
   }
 
-  const render2D = <div className={styles.container}>{getSegments(digit)}</div>
-
-  const render3D = (
-    <div className={styles.perspective}>
-      <div className={`${styles.face} ${styles['face-front']}`}>{render2D}</div>
-      <div className={`${styles.face} ${styles['face-back']}`} />
-      <div className={`${styles.face} ${styles['face-top']}`} />
-      <div className={`${styles.face} ${styles['face-bottom']}`} />
-      <div className={`${styles.face} ${styles['face-left']}`} />
-      <div className={`${styles.face} ${styles['face-right']}`} />
-    </div>
-  )
-
   const render = (
     <div
       className={`
@@ -63,7 +50,9 @@ const Display = ({ digit = '', fluid, customClass, is3D }) => {
         ${customClass} 
       `}
     >
-      <div className={styles.box}>{is3D ? render3D : render2D}</div>
+      <div className={`${styles.box} ${is3D ? styles.perspective : ''}`}>
+        <div className={styles.container}>{getSegments(digit)}</div>
+      </div>
     </div>
   )
   return render

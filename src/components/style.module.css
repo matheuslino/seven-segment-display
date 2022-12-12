@@ -13,56 +13,40 @@
 }
 
 .box {
+  position: relative;
   min-width: 100%;
   padding: max(4%, 0.4em) max(15%, 0.4em);
   background-color: var(--gray);
   border-radius: 0.4rem;
   box-shadow: var(--box-shadow);
 }
-.box:has(.perspective) {
-  /* padding: 0; */
-  transform: scale(5);
+.box.perspective {
+  transition: 0.4s;
+  transform: scale(4) rotateY(25deg);
 }
-.perspective {
-  width: 3.5em;
-  height: 6.3em;
-  aspect-ratio: calc(1 / (2 - (var(--seg-height-raw) / 100)));
-  transform: rotate3d(1, 1, 0, -30deg);
-  transform-style: preserve-3d;
-  transition: 1s;
-}
-.perspective .face {
+.box.perspective::before {
   position: absolute;
+  content: ' ';
   width: 100%;
-  height: 100%;
+  height: 0.7rem;
+  right: 0;
+  border-radius: 0.4rem 0 0 0;
+  transform: skewX(-45deg);
+  transform-origin: bottom left;
+  background-color: rgba(188, 184, 184, 0.7);
 }
-.perspective .face-front {
-  background: black;
-  transform: translateZ(1.75em);
+.box.perspective::after {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  right: -0.7rem;
+  width: 0.7rem;
+  height: calc(100% - 0.2rem);
+  border-radius: 0 0 0.4rem 0;
+  transform: skewY(-45deg);
+  transform-origin: bottom left;
+  background-color: rgba(188, 184, 184, 0.5);
 }
-.perspective .face-back {
-  background: purple;
-  transform: rotateY(180deg) translateZ(1.75em);
-}
-.perspective .face-left {
-  background: blue;
-  transform: rotateY(-90deg) translateZ(1.75em);
-}
-.perspective .face-right {
-  background: green;
-  transform: rotateY(90deg) translateZ(1.75em);
-}
-.perspective .face-top {
-  height: 50%;
-  background: brown;
-  transform: rotateX(90deg) translateZ(1.75em);
-}
-.perspective .face-bottom {
-  height: 50%;
-  background: pink;
-  transform: rotateX(-90deg) translateZ(5em);
-}
-
 .container {
   display: flex;
   justify-content: center;
