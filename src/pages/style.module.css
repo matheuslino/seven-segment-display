@@ -31,19 +31,25 @@ header span {
   opacity: 0.8;
 }
 
-.row {
+.section {
   display: grid;
   gap: var(--ft-size-gap);
   max-width: 80em;
   margin: 0 auto;
   padding: 2em;
 }
+.row {
+  display: grid;
+  gap: var(--ft-size-gap);
+}
 .col {
   display: grid;
   align-content: start;
+}
+.col-A,
+.col-B {
   gap: 1em;
   padding: 1em;
-  min-height: 40vh;
   border-radius: 0.5em;
   background-color: #ffffff;
   box-shadow: var(--box-shadow);
@@ -65,9 +71,6 @@ header span {
   }
 }
 @media (min-width: 55em) {
-  .row {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
   .col.col-A {
     grid-column: 1 / span 3;
   }

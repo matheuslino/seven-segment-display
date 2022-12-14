@@ -34,11 +34,15 @@ const Segment = ({ code, isOn }) => {
   return render
 }
 
-const Display = ({ digit = '', fluid, customClass, is3D }) => {
+const Display = ({ digit = '', fluid, customClass, is3D, isDp }) => {
   const getSegments = (n) => {
     n = n?.toString(16)
     return segments.map((e, key) => (
-      <Segment key={key} code={e} isOn={truthTabel[n]?.[key]} />
+      <Segment
+        key={key}
+        code={e}
+        isOn={truthTabel[n]?.[key] || (e === 'dp' && isDp)}
+      />
     ))
   }
 
