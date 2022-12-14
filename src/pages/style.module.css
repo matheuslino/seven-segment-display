@@ -3,6 +3,10 @@ body {
   font-family: monospace, 'Calibri', sans-serif;
 }
 
+.ft-gap {
+  gap: var(--ft-size-gap);
+}
+
 nav {
   height: 2em;
   background-color: var(--black);
@@ -32,7 +36,6 @@ header span {
 }
 
 .section {
-  display: grid;
   gap: var(--ft-size-gap);
   max-width: 80em;
   margin: 0 auto;
@@ -40,14 +43,13 @@ header span {
 }
 .row {
   display: grid;
-  gap: var(--ft-size-gap);
 }
 .col {
   display: grid;
   align-content: start;
 }
-.col-A,
-.col-B {
+.container-A,
+.container-B {
   gap: 1em;
   padding: 1em;
   border-radius: 0.5em;
@@ -55,27 +57,27 @@ header span {
   box-shadow: var(--box-shadow);
 }
 @media (min-width: 25em) {
-  .col.col-A {
+  .col.container-A {
     grid-template-columns: 1fr 1fr;
   }
-  .col.col-B {
+  .col.container-B {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (min-width: 40em) {
-  .col.col-A {
+  .col.container-A {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .col.col-B {
+  .col.container-B {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media (min-width: 55em) {
-  .col.col-A {
-    grid-column: 1 / span 3;
+  .col.container-A {
+    grid-column: 1;
   }
-  .col.col-B {
-    grid-column: 4 / span 2;
+  .col.container-B {
+    grid-column: 2;
     grid-template-columns: 1fr 1fr;
   }
 }
