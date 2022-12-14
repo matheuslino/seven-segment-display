@@ -34,14 +34,17 @@ const Segment = ({ code, isOn }) => {
   return render
 }
 
-const Display = ({ digit, fluid, customClass }) => {
-  const decode = (n) => {
+const Display = ({ digit = '', fluid, customClass, is3D, isDp }) => {
+  const getSegments = (n) => {
+    n = n?.toString(16)
     return segments.map((e, key) => (
-      <Segment key={key} code={e} isOn={truthTabel[n]?.[key]} />
+      <Segment
+        key={key}
+        code={e}
+        isOn={truthTabel[n]?.[key] || (e === 'dp' && isDp)}
+      />
     ))
   }
-
-  const getSegments = (digit) => decode(digit.toString(16))
 
   const render = (
     <div
@@ -51,7 +54,7 @@ const Display = ({ digit, fluid, customClass }) => {
         ${customClass} 
       `}
     >
-      <div className={styles.box}>
+      <div className={`${styles.box} ${is3D ? styles.perspective : ''}`}>
         <div className={styles.container}>{getSegments(digit)}</div>
       </div>
     </div>

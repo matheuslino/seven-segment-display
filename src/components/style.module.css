@@ -1,11 +1,4 @@
 .wrapper {
-  width: min(5rem, 100%);
-}
-.fluid {
-  width: 100%;
-}
-
-.box {
   --seg-gap: 2%;
   --seg-width: 100%;
   --seg-height-raw: 20;
@@ -13,14 +6,56 @@
   --white: #fdfffc;
   --gray: #6a708a;
 
-  padding: max(4%, 0.4em) max(15%, 0.4em);
+  width: min(5rem, 100%);
+}
+.fluid {
+  width: 100%;
+}
+
+.box {
+  position: relative;
   min-width: 100%;
+  padding: max(4%, 0.4em) max(15%, 0.4em);
   background-color: var(--gray);
   border-radius: 0.4rem;
   box-shadow: var(--box-shadow);
-  overflow: hidden;
 }
-
+.box.perspective {
+  transition: 0.4s;
+  top: 0.5em;
+  border-radius: 0;
+  transform: scale(0.9) rotateY(25deg);
+}
+.box.perspective::before {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 0.7rem;
+  top: -0.7rem;
+  left: 0;
+  transform: skewX(-45deg);
+  transform-origin: bottom left;
+  background: linear-gradient(
+    0deg,
+    rgb(180, 186, 207) 14%,
+    rgb(163, 168, 192) 100%
+  );
+}
+.box.perspective::after {
+  position: absolute;
+  content: ' ';
+  width: 0.7rem;
+  height: 100%;
+  top: 0;
+  right: -0.7rem;
+  transform: skewY(-45deg);
+  transform-origin: bottom left;
+  background: linear-gradient(
+    90deg,
+    rgb(150, 156, 179) 24%,
+    rgb(134, 138, 159) 100%
+  );
+}
 .container {
   display: flex;
   justify-content: center;
